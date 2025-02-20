@@ -27,8 +27,9 @@ jobs:
       - name: Titulo
         run: docker tag m6 jeanfg/m6:latest
 
+      - name: login to docker hub
+        run: docker login -u jeanfg -p ${{ secrets.DOCKER_HUB_TOKEN }}
+
       - name: push image
         run: docker push jeanfg/m6:latest
 
-      - name: login to docker hub
-        run: docker login -u jeanfg -p ${{ secrets.DOCKER_HUB_TOKEN }}
